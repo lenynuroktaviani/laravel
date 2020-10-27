@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\cobaController;
+use App\Http\Controllers\cobacontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,17 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/coba', function () {
-    return view('coba');
-});
-
-Route::get('/coba/{no}', [ cobaController::class, 'coba' ]);
-
-Route::get('/test', [ cobaController::class, 'index' ]);
-Route::get('/test/{ke}', [ cobaController::class, 'urutan']);
-
+route::get('', [cobacontroller::class, "index"]);
+route::get('/friends', [cobacontroller::class, "index"]);
+route::get('/friends/create', [cobacontroller::class, "create"]);
+route::post('/friends', [cobacontroller::class, "store"]); 
+route::post('/friends/store', [cobacontroller::class, "store"]);
+route::get('/friends/{id}', [cobacontroller::class, "show"]);
+route::get('/friends/{id}/edit', [cobacontroller::class, "edit"]);
+route::put('/friends/{id}', [cobacontroller::class, "update"]);
+route::delete('/friends/{id}', [cobacontroller::class, "destroy"]); 

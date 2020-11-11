@@ -1,14 +1,17 @@
 <?php
+
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-class friends extends Model
+
+class Groups extends Model
 {
     use HasFactory;
-    protected $guarded = ['mana'];
+    protected $guarded = ['name'];
 
-    public function groups()
+    public function friends()
     {
-        return $this->belongsTo('App\Models\groups');
+        return $this->hasMany('App\Models\friends');
     }
 }
